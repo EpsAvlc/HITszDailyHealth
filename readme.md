@@ -17,5 +17,13 @@ sudo apt-get install chromium-browser
 随后去[chrome-driver](https://chromedriver.chromium.org/downloads)下载对应的chromedriver到该文件夹下
 
 ### 3. 下载python依赖
+pip3 install -r requrements.txt
+### 4. 配置脚本&运行
+将config-example.json文件修改为config.json，并填上自己信息门户的学号与密码
+随后
+``` python3
+python main.py
+```
+### 5. 自动化
 
-### 4. 配置脚本
+正在尝试以github action为依托的自动化
