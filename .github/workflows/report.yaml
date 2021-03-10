@@ -28,4 +28,4 @@ jobs:
       env:
         user_id: ${{ secrets.USERS}}
         password: ${{secrets.PASSWORD}}
-      run:"python -u main.py"
+      run: "python -u main.py"
