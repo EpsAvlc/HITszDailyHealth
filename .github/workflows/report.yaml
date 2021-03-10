@@ -22,7 +22,7 @@ jobs:
     - name: Add chrome chromedriver
       run: |
         sudo apt-get install chromium-browser
-        wet https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip
+        wget https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
 
 
