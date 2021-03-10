@@ -2,7 +2,7 @@ name: Auto Report
 
 on:
   schedule:
-    - cron "0 23 * * *"
+    - cron: "0 23 * * *"
 
 jobs:
   build:
@@ -23,10 +23,3 @@ jobs:
         apt-get install chromium-browser
         wet https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
-
-
-    # - name: Report
-    #   env:
-    #     user_id: ${{ secrets.USERS}}
-    #     password: ${{secrets.PASSWORD}}
-    #   run:"python -u main.py"
