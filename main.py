@@ -83,8 +83,8 @@ def run(user_id, password):
         button_logins = button_div.find_elements_by_tag_name("button")
         button_login = button_logins[0]
         button_login.click()
+        print("尝试登录")
         login(user_id, password)
-        print("登录成功")
         time.sleep(0.5)
         daily_report()
     except Exception:
