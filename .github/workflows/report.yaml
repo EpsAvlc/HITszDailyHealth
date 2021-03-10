@@ -24,10 +24,8 @@ jobs:
         sudo apt-get install chromium-browser
         wget https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
-
-
-    # - name: Report
-    #   env:
-    #     user_id: ${{ secrets.USERS}}
-    #     password: ${{secrets.PASSWORD}}
-    #   run:"python -u main.py"
+    - name: Report
+      env:
+        user_id: ${{ secrets.USERS}}
+        password: ${{secrets.PASSWORD}}
+      run:"python -u main.py"
