@@ -97,8 +97,19 @@ def run(user_id, password):
 
 
 if __name__ == '__main__':
-    with open(os.path.join(current_folder, "config.json"), encoding='UTF-8') as config_file:
-        j = json.load(config_file)
-        user_id = j['user_id']
-        password = j['password']
-        run(user_id, password)
+    user_id = ''
+    password = ''
+
+    if 'user_id' in os.environ:
+        user_id = os.environ['user_id']
+        password = os.environ['password']
+        print("正在使用Github actions 登录")
+    else :
+        print("正在使用config.json 登录")
+        with open(os.path.join(current_folder, "config.json"), encoding='UTF-8') as config_file:
+            j = json.load(config_file)
+            user_id = j['user_id']
+            password = j['password']
+
+
+    run(user_id, password)
