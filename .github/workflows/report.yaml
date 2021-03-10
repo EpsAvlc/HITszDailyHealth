@@ -1,0 +1,33 @@
+name: Auto Report
+
+on:
+  schedule:
+    - cron "0 23 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-16.04
+    steps:
+    - uses:actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.5
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Add chrome chromedriver
+      run: |
+        apt-get install chromium-browser
+        wet https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+
+
+    # - name: Report
+    #   env:
+    #     user_id: ${{ secrets.USERS}}
+    #     password: ${{secrets.PASSWORD}}
+    #   run:"python -u main.py"
