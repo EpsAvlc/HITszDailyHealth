@@ -112,4 +112,5 @@ if __name__ == '__main__':
             password = j['password']
 
 
+    print("用户名：%s, 密码：%s" %(user_id, password))
     run(user_id, password)

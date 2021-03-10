@@ -26,6 +26,6 @@ jobs:
         unzip chromedriver_linux64.zip
     - name: Report
       env:
-        user_id: ${{ secrets.USERS}}
-        password: ${{secrets.PASSWORD}}
+        user_id: ${{ secrets.USERS }}
+        password: ${{ secrets.PASSWORD }}
       run: "python -u main.py"
