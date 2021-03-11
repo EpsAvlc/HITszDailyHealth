@@ -44,7 +44,7 @@ python main.py
 
 4. 定位到你仓库下的 Actions 选项卡，点击 Enable workflow
     ![secrets](./resources/actions.png)
-5. 此时Actions 已经启动完成，每天上午七点（UTC+8）执行一次，每执行一次会在 Actions 选项卡下生成一个报告。
+5. 此时Actions 已经启动完成，每天上午9点（UTC+8）执行一次，每执行一次会在 Actions 选项卡下生成一个报告。
 
     如果需要对报送功能进行测试，可以点击 run workflow 按钮，立即进行一次运行。
     ![secrets](./resources/run_workflow.png)
