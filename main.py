@@ -31,7 +31,7 @@ def prepare_chrome_driver():
 
     unzip_process = subprocess.Popen('unzip chromedriver_linux64.zip', stdout=subprocess.PIPE,shell=True)
     unzip_process.wait()
-    pass
+    return True
 
 if not prepare_chrome_driver():
     print("下载chrome driver 失败")
