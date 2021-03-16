@@ -6,6 +6,7 @@ import json
 import datetime
 import time
 import traceback
+import subprocess
 # import re
 
 date_of_today = datetime.datetime.now()  # 当日日期
@@ -14,7 +15,31 @@ current_folder = os.path.split(os.path.realpath(__file__))[0]
 req_url = "https://www.baidu.com"
 chrome_options=Options()
 chrome_options.add_argument('--headless')
+
+def prepare_chrome_driver():
+    if os.path.exists(os.path.join(current_folder, 'chromedriver')):
+        return True
+    process = subprocess.Popen('chromium-browser --version', stdout=subprocess.PIPE,shell=True)
+    version_str = process.communicate()
+    version_num = str(version_str[0][9:11], encoding='utf-8')
+    chrome_driver_path_dict = {'87': 'https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip',\
+        '88':'https://chromedriver.storage.googleapis.com/88.0.4324.96/chromedriver_linux64.zip',\
+        '89':'https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip'}
+    download_path = chrome_driver_path_dict[version_num]
+    download_process = subprocess.Popen('wget ' + download_path, stdout=subprocess.PIPE,shell=True)
+    download_process.wait()
+
+    unzip_process = subprocess.Popen('unzip chromedriver_linux64.zip', stdout=subprocess.PIPE,shell=True)
+    unzip_process.wait()
+    pass
+
+if not prepare_chrome_driver():
+    print("下载chrome driver 失败")
 driver = webdriver.Chrome(executable_path=os.path.join(current_folder, "chromedriver"), chrome_options=chrome_options)
+
+
+
+
 
 def login(user_id, password):
     """登录"""
@@ -97,6 +122,8 @@ def run(user_id, password):
 
 
 if __name__ == '__main__':
+
+
     user_id = ''
     password = ''
 
