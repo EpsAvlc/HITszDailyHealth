@@ -24,7 +24,8 @@ def prepare_chrome_driver():
     version_num = str(version_str[0][9:11], encoding='utf-8')
     chrome_driver_path_dict = {'87': 'https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip',\
         '88':'https://chromedriver.storage.googleapis.com/88.0.4324.96/chromedriver_linux64.zip',\
-        '89':'https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip'}
+        '89':'https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip',\
+        '90':'https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip'}
     download_path = chrome_driver_path_dict[version_num]
     download_process = subprocess.Popen('wget ' + download_path, stdout=subprocess.PIPE,shell=True)
     download_process.wait()
